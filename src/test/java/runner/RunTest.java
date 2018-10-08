@@ -1,24 +1,37 @@
-package runner;
+package stepdefinations;
 
-import cucumber.api.CucumberOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import utility.Hook;
 
-import org.testng.annotations.Test;
+public class AppiumScenario {
 
-// Uncomment @RunWith if you are using Junit to run Test 
-//@RunWith(Cucumber.class)
+private WebDriver driver;
+	
+	public AppiumScenario() {
+		this.driver = Hook.getDriver();
+	}
+	
+	@Given("^I open the application$")
+	public void i_open_the_application() throws Throwable {
+	    System.out.print("test here");
+		//Assert.assertTrue(driver.findElement(By.xpath("//*[@text='Accessibility']")).isDisplayed());
 
-@CucumberOptions(features={"src//test//java//features"}
-					,glue={"stepdefinations","utility"}
-					,plugin = {"pretty"}
-					, tags ={"@appium"}
-					,format = {"json:target/json-report/dw.json",
-                               "html:target/cucumber-reports/cucumber-pretty",
-                               "rerun:target/cucumber-reports/rerun.txt"
-                })
+	}
 
-@Test
-public class RunTest extends AbstractTestNGCucumberTests{
+	@When("^I tap on Accessibility$")
+	public void i_tap_on_Accessibility() throws Throwable {
+		driver.findElement(By.xpath("//*[@text='Accessibility']")).click();
+	}
 
+	@Then("^I validate Custom View$")
+	public void i_validate_Custom_View() throws Throwable {
+	  Assert.assertTrue(driver.findElement(By.xpath("//*[@text='Custom View']")).isDisplayed(), "Custom View is not displayed");
+	  
+	}
 }
