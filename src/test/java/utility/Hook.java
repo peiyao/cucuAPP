@@ -46,9 +46,9 @@ public class Hook {
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "BH905CXJ5Z");
-		cap.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"//App//ApiDemos.apk");
+		cap.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"//App//sampleApp.apk");
 
-		//cap.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"//App//Rebtel.apk");
+		
 		//cap.setCapability("appActivity", "com.tuenti.messenger.ui.activity.MainActivity");
 		//cap.setCapability("appWaitPackage", "com.rebtel.android.client.RebtelAppApplication");
 		//cap.setCapability("appWaitActivity", "com.rebtel.android.client.RebtelActivity");
